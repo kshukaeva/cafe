@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="navbar.html :: headerfiles">
+</head>
+<body>
+<header th:insert="navbar.html :: nav"></header>
+<div class="container">
+	<h1 class="display-4 my-2"style="text-align: center; font-family:monospace" th:text ="'Manager Page'"></h1>
+	<hr>
+	<div class="row" style="text-align: center; display: flex;justify-content: center;align-items: center;">
+		<div class="list-group col-5">
+			<a class="list-group-item list-group-item-action"
+			   href="#" th:href="@{/manager/CategoryList}">Category List</a>
+			<a class="list-group-item list-group-item-action"
+			   href="#" th:href="@{/manager/ProductList}">Product List</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

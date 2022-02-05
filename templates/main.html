@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="navbar.html :: headerfiles">
+<link th:href="@{~/fontawesome/css/all.css}" rel="stylesheet">
+<body>
+<header th:insert="navbar.html :: nav"></header>
+<!-- Home-->
+    <h2 class="text-center" style="padding-top:2%; font-size:35px; font-family:'Courier New', monospace">Cafeteria "Aurora"</h2>
+    <h3 class="text-center"  style="color: #8a2846; padding-top:2%; font-family:'Courier New',monospace">Hungry?<p>You're in the right place</p></h3>
+
+<!-- About Section -->
+    <div class="row" style=" text-align: center;max-width: 1200px; margin: 0 auto;padding: 100px 20px;">
+        <div class="col">
+            <h1 style="font-family: 'Apple Chancery', cursive;">About our Cafeteria</h1>
+            <p style="text-align:left; font-family: monospace;font-size: 19px;">The Cafeteria "Aurora" is open daily from 7 a.m. to midnight.</p>
+
+            <p style="text-align:left;  font-family: monospace;font-size: 19px;">Located on the first floor, the Cafeteria "Aurora" offers a selection of hot and cold foods, soups and a salad bar, as well as a wide variety of beverages and desserts.
+            Full meal service is available during the following hours:</p>
+
+            <p style="text-align:left;  font-family: monospace;font-size: 19px;">Breakfast:  7 a.m. to 10 a.m.</p>
+            <p style="text-align:left;  font-family: monospace;font-size: 19px;">Lunch: 11 a.m. to 1:30 p.m.</p>
+            <p style="text-align:left;  font-family: monospace;font-size: 19px;">Dinner: 4:30 p.m. to 6:30 p.m</p>
+        </div>
+        <div class="col col-left" style="width: 250px; height: 360px; margin-top: 65px;">
+            <div style="height: 100%; width: 100%; position: relative; border: 10px solid #1d3557;">
+                <img src="https://restolife.kz/upload/information_system_6/1/0/7/item_1071/information_items_property_434.jpg" alt="img" style="height: 100%;width: 100%;object-fit: cover;">
+            </div>
+        </div>
+    </div>
+<!-- End About Section -->
+</body>
+</html>

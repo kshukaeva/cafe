@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!-- Fragment #1 : Headerfiles contains css and js references -->
+<head th:fragment="headerfiles">
+<meta charset="ISO-8859-1">
+<title>Cafeteria "Aurora"</title>
+<link th:href="@{~/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{~/fontawesome/css/all.css}" rel="stylesheet">
+</head>
+<body>
+
+	<!-- Fragment #2 : Navbar contains nav links -->
+	<div th:fragment="nav">
+		<nav class="navbar navbar-expand-lg navbar-dark"  style="background-color: #1d3557;">
+			<div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a class="nav-link" href="#"
+						th:href="@{/main}"><i class="fa fa-home mr-2"></i>Home</a></li>
+					<li class="nav-item active"><a class="nav-link" href="#"
+						th:href="@{/index}"><i class="fas fa-coffee mr-2"></i>Menu</a></li>
+					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
+						class="nav-link active" href="#" th:href="@{/admin/index}">Admin</a></li>
+					<li sec:authorize="hasAnyRole('ROLE_MANAGER')"
+						class="nav-item active"><a class="nav-link" href="#"
+						th:href="@{/manager/index}">MANAGER</a></li>
+				</ul>
+			</div>
+			<div class="mx-auto order-0">
+				<a class="navbar-brand mx-auto" href="#">Cafeteria "Aurora"</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+				<ul class="navbar-nav ml-auto" style="background-color: #8a2846; border-radius: 2px;padding: 3px;">
+					<li class="nav-item" ><a href="#" class="text-info" th:href="@{/profile/cart-product}"><i class="fas fa-shopping-cart" style="color:white;"> Cart</i></a></li>
+				</ul>
+				<form class="form-inline my-2 my-lg-0" form-method="post"
+					th:action="@{/logout}">
+					<button sec:authorize="isAuthenticated()"
+						class="btn btn-dark my-2 my-sm-0 btn-sm" style="background-color: #8a2846 !important;" type="submit">Logout</button>
+					<button sec:authorize="isAnonymous()" th:href="@{~/login}"
+						class="btn btn-dark my-2 my-sm-0 btn-sm" style="background-color: #8a2846 !important;" type="submit">Login</button>
+				</form>
+			</div>
+		</nav>
+	</div>
+
+</body>
+</html>

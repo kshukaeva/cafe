@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="navbar.html :: headerfiles">
+</head>
+<body>
+<header th:insert="navbar.html :: nav"></header>
+<div class="container">
+	<h1 class="display-4 my-3" style="text-align: center; display: flex;justify-content: center;align-items: center;">Your Order:</h1>
+	<div class="row">
+		<ul class="list-group col-9">
+			<li class="list-group-item d-flex justify-content-around">
+				<span class="my-auto h6">Product</span>
+				<span class="my-auto h6">Price</span>
+			</li>
+		</ul>
+		<ul class="list-group col-9" th:each="product : ${user.productList}">
+			<li class="list-group-item d-flex justify-content-around">
+				<span class="my-auto" th:text="${product.productName}"></span>
+				<span class="my-auto" th:text="${product.productPrice}+' тг'"></span>
+			</li>
+		</ul>
+		<ul class="list-group col-9">
+			<li class="list-group-item d-flex justify-content-end">
+				<span class="h6" th:text="'Total : '+${total}+' тг'"></span>
+			</li>
+			<li class="list-group-item d-flex justify-content-end">
+				<a href="#" type="button" class="btn btn-dark" style="background-color: #8a2846" >Make Order</a>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

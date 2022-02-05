@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="navbar.html :: headerfiles">
+</head>
+<body>
+<header th:insert="navbar.html :: nav"></header>
+<div class="container">
+	<div class="row my-5" style="text-align: center; display: flex;justify-content: center;align-items: center;">
+		<div class="list-group col-5">
+			<a class="list-group-item list-group-item-action"
+			   href="#" th:href="@{/manager/CategoryList}">Category List</a>
+			<a class="list-group-item list-group-item-action"
+			   href="#" th:href="@{/manager/ProductList}">Product List</a>
+		</div>
+		<table class="table my-5">
+			<thead>
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">Category Name</th>
+				<th scope="col">Action</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each="category : ${categoryList}">
+				<th scope="row" th:text="${category.categoryId}"></th>
+				<td th:text="${category.categoryName}"></td>
+				<td>
+					<a href="#" th:href="@{'/manager/updateCategory/'+ ${category.categoryId}}"
+					   class="btn btn-primary">Update</a>
+					<a href="#" th:href="@{'/manager/delete-Category/'+ ${category.categoryId}}"
+					   class="btn btn-danger">Delete</a>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="container">
+		<h1 class="display-4 my-2"style="text-align: center; font-size:35px; font-family:'Times New Roman',serif" th:text ="'Add New Category'"></h1>
+	</div>
+	<div
+			style="width: 600px; margin-left: auto; margin-right: auto; margin-top: 24px; padding: 24px;">
+		<div class="card">
+			<div class="card-block" style="padding: 24px;">
+				<form th:action="@{/manager/add-category}" method="post">
+					<fieldset>
+						<div class="form-group">
+							<label for="categoryName">Category Name</label> <input
+								type="text" class="form-control" id="categoryName"
+								name="categoryName" placeholder="Category Name">
+						</div>
+
+						<div class="form-actions" style="margin-top: 12px;display: flex;justify-content: center;align-items: center;">
+							<button type="submit" class="btn btn-success">ADD Category</button>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
